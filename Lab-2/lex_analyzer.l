@@ -2,6 +2,7 @@
 
 %{
 
+
 #include"symbol_info.h"
 
 #define YYSTYPE symbol_info*
@@ -46,7 +47,7 @@ double      { return DOUBLE; }
 switch      { return SWITCH; }
 case        { return CASE; }
 default     { return DEFAULT; }
-printf      { return PRINTLN; }
+printf      { return PRINTF; }
 
 "+"|"-"	    {
                 symbol_info *s = new symbol_info((string)yytext,"ADDOP");
