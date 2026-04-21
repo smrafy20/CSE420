@@ -14,3 +14,5 @@ echo 'All ready, running'
 ./a.exe 21301242.c
 echo 'logfile'
 cat 21301242_log.txt
+echo 'errorfile'
+cat 21301242_error.txt
