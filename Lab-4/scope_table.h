@@ -44,12 +44,6 @@ public:
         return parent_scope;
     }
 
-    // void set_scope_table_ID()
-    // {
-    //     if(parent_scope) ID = parent_scope->getID()+"."+to_string(parent_scope->get_num_chld());
-    //     else ID = "1";
-    // }
-
     int get_num_chld()
     {
         return num_chld;
@@ -182,14 +176,12 @@ public:
     {
     	string s = "";
     	s+="ScopeTable # "+to_string(ID)+"\n";
-        //cout<<"ScopeTable # "<<ID<<endl;
 
         for(int i = 0; i < tbl_size; i++)
         {
             if(chains[i]!=NULL)
             {
             	s+=to_string(i)+" --> ";
-            	//cout<<i<<" --> ";
 
 		        symbol_info *curr_sym = chains[i];
 
@@ -207,42 +199,36 @@ public:
                             s+=curr_sym->getparamlist()[i] + " " + curr_sym->getparamname()[i];
                             if(i!=curr_sym->getparamlist().size()-1) s+=", ";
                         }
-                        //cout<<"Function Definition"<<endl;
                     }
+
                     else if (curr_sym->getidtype() == "var")
                     {
                         s+="Variable\n";
                         s+="Type: "+curr_sym->getvartype()+"\n";
-                        //cout<<"Variable"<<endl;
                     }
+
                     else if (curr_sym->getidtype() == "array")
                     {
                         s+="Array\n";
                         s+="Type: "+curr_sym->getvartype()+"\n";
                         s+="Size: "+to_string(curr_sym->getarraysize())+"\n";
-                        //cout<<"Array"<<endl;
                     }
+
                     else
                     {
                         s+="Error\n";
-                        //cout<<"Error"<<endl;
                     }
-		            //cout<<"< "<<curr_sym->getname()<<" : "<<curr_sym->gettype()<<" > ";
 		            curr_sym = curr_sym->get_next();
 		        }
 				s+="\n";
-		        //cout<<endl;
             }
         }
 		s+="\n";
 		outlog<<s;
-        //cout<<endl;
-        //return s;
     }
 
     ~scope_table()
     {
-        //cout<<"delete scope"<<endl;
         for(int i = 0; i<tbl_size; i++)
         {
             while(chains[i]!=NULL)

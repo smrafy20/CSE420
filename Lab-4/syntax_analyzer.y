@@ -1315,10 +1315,10 @@ int main(int argc, char *argv[])
 		return 0;
 	}
 	yyin = fopen(argv[1], "r");
-	outlog.open("log.txt", ios::trunc);
-	outerror.open("error.txt", ios::trunc);
-	outcode.open("code.txt", ios::trunc);
-	
+	outlog.open("21201129_log.txt", ios::trunc);
+	outerror.open("21201129_error.txt", ios::trunc);
+	outcode.open("21201129_code.txt", ios::trunc);
+
 	if(yyin == NULL)
 	{
 		cout<<"Couldn't open file"<<endl;
@@ -1360,6 +1360,7 @@ int main(int argc, char *argv[])
 	outlog.close();
 	outerror.close();
 	outcode.close();
+
 	
 	fclose(yyin);
 	

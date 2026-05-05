@@ -1,6 +1,5 @@
 #ifndef SYMBOL_INFO_H
 #define SYMBOL_INFO_H
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -15,10 +14,10 @@ private:
     string ID_type; //var, array, func_dec, func_def
     string var_type; //int, float, void, error
     int array_size;
-    vector<string> param_list;//for functions
+    vector<string> param_list; //for functions
     vector<string> param_name;
     symbol_info *next_sym;
-    ASTNode* ast_node; // Pointer to AST node
+    ASTNode* ast_node; //Pointer to AST node
 public:
     //symbol_info(){}
     symbol_info(string name, string type)
@@ -103,7 +102,7 @@ public:
     	return param_list.size();
     }
 
-    // New methods for AST support
+    // New methods for the AST support
     void set_ast_node(ASTNode* node)
     {
         ast_node = node;
@@ -119,7 +118,6 @@ public:
         delete next_sym;
         param_list.clear();
         param_name.clear();
-        // Don't delete ast_node here - will be managed separately
     }
 };
 
